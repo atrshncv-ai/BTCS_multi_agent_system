@@ -1,0 +1,41 @@
+# Environment files
+.env
+.env.chatwoot
+.env.example
+
+# Logs
+*.log
+logs/
+
+# Python
+__pycache__/
+*.py[cod]
+.ruff_cache/
+
+# Node modules (except package files)
+whatsapp_service/node_modules/
+parser_avito/node_modules/
+venv_parse/
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+
+# Backups
+*.tgz
+*.tar.gz
+
+# Chrome/WhatsApp session data
+whatsapp_service/session/
+whatsapp_service/session_visible/
+whatsapp_service/qrcode.png
+
+# Parser output/data
+ojp_progress/
+parser_avito/
+
+# Virtual environments
+venv_parse/
+*/venv/
+*.venv/

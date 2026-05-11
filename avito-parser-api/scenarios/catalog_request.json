@@ -1,0 +1,42 @@
+{
+  "id": "scenario_catalog_request_v1",
+  "name": "Запрос каталога и прайс-листа",
+  "language": "ru",
+  "goal": "Получить от поставщика актуальный каталог товаров и оптовые цены",
+  "trigger": "after_greeting OR manual",
+  
+  "stages": [
+    {
+      "id": "stage_1_initial_request",
+      "template": "Добрый день, {{seller_name}}! Меня зовут {{operator_name}}, компания {{company_name}}.\nМы заинтересованы в вашем ассортименте товаров категории {{category}}.\nНе могли бы вы прислать нам актуальный каталог и оптовый прайс-лист?",
+      "variables": ["seller_name", "category", "operator_name", "company_name"],
+      "expected_responses": {
+        "has_catalog": {"next": "stage_2_catalog_received", "action": "acknowledge_and_ask_price"},
+        "has_price_only": {"next": "stage_2_price_received", "action": "ask_for_catalog_separately"},
+        "refuse_with_conditions": {"next": "stage_handle_refusal", "action": "understand_reasons"},
+        "ask_to_call_back": {"next": "stage_schedule_callback", "action": "schedule_call"}
+      },
+      "completion_criteria": "received_file OR received_link"
+    },
+    {
+      "id": "stage_2_catalog_received",
+      "template": "Спасибо за каталог! Уточните пожалуйста:\n1. Есть ли цены на позиции?\n2. Какой минимальный заказ (MOQ)?\n3. Срок производства/отгрузки?\n4. Работаете ли на условиях отсрочки?",
+      "variables": [],
+      "expected_responses": {
+        "has_prices_moq": {"next": "stage_3_terms_confirmed", "action": "proceed_to_negotiation"},
+        "partial_info": {"next": "stage_2_ask_missing", "action": "ask_specific_fields"},
+        "not_ready_yet": {"next": "stage_2_follow_up_later", "action": "schedule_followup"}
+      }
+    },
+    {
+      "id": "stage_3_terms_confirmed",
+      "template": "Отлично! Для начала сотрудничества нам нужно:\n- Заказ от {{min_order}} единиц\n- Предоплата {{prepayment}}%\nСогласны ли на такие начальные условия?",
+      "variables": ["min_order", "prepayment"],
+      "completion_criteria": "agreement OR counter_offer OR request_for_time"
+    }
+  ],
+  
+  "human_approval_required": false,
+  "auto_send": true,
+  "timeout_hours": 48
+}

@@ -1,0 +1,22 @@
+{
+  "id": "scenario_greeting_v1",
+  "name": "Приветственное сообщение",
+  "language": "ru",
+  "goal": "Представиться и инициировать первый контакт",
+  "trigger": "new_conversation OR after_qualification",
+  
+  "stages": [{
+    "id": "greet",
+    "template": "Здравствуйте, {{seller_name}}!\nМеня зовут {{operator_name}}, я представляю компанию {{company_name}}.\nМы нашли ваше объявление на {{source_platform}} и заинтересованы в возможности сотрудничества по {{category}}.\nРассматриваете ли вы возможность поставок?",
+    "variables": ["seller_name", "category", "source_platform", "operator_name", "company_name"],
+    "expected_responses": {
+      "interested": {"next": "scenario_catalog_request", "action": "switch_to_catalog_flow"},
+      "not_interested": {"next": "stage_handle_not_interested", "action": "ask_reasons_or_end"},
+      "ask_questions": {"next": "stage_answer_questions", "action": "provide_info"},
+      "busy_will_respond": {"next": "stage_schedule_followup", "action": "set_reminder"}
+    },
+    "completion_criteria": "any_clear_response"
+  }],
+  "human_approval_required": false,
+  "auto_send": true
+}
