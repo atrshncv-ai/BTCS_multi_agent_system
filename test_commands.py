@@ -7,7 +7,7 @@ from telegram import Bot, Update
 from telegram.ext import Application, CommandHandler, ContextTypes
 from pathlib import Path
 
-TOKEN = "REDACTED_TELEGRAM_BOT_TOKEN"
+TOKEN = ""
 
 async def cmd_all(update, ctx):
     await update.message.reply_text("Sending /all...")

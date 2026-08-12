@@ -8,7 +8,7 @@ from pathlib import Path
 from telegram import Bot, Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
 
-TOKEN = "REDACTED_TELEGRAM_BOT_TOKEN"
+TOKEN = ""
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("👋 Use /export for all profiles, /contacts for contacts with emails/phones")

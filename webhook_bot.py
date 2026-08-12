@@ -9,7 +9,7 @@ from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
 logging.basicConfig(level=logging.INFO)
 
-TOKEN = "REDACTED_TELEGRAM_BOT_TOKEN"
+TOKEN = ""
 
 async def handle_all(update: Update, context: ContextTypes.DEFAULT_TYPE):
     f = Path("ojp_progress/ojp_idscan_export.csv")

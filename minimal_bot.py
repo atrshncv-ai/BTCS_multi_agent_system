@@ -7,7 +7,7 @@ from telegram import Bot, Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
 from pathlib import Path
 
-TOKEN = "REDACTED_TELEGRAM_BOT_TOKEN"
+TOKEN = ""
 
 async def cmd_all(update: Update, context: ContextTypes.DEFAULT_TYPE):
     print(f"GOT /all from {update.message.chat.id}")

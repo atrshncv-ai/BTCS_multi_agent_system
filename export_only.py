@@ -6,7 +6,7 @@ from telegram import Bot, Update
 from telegram.ext import Application, CommandHandler, ContextTypes
 from pathlib import Path
 
-TOKEN = "REDACTED_TELEGRAM_BOT_TOKEN"
+TOKEN = ""
 
 async def export_all(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Send all profiles CSV"""

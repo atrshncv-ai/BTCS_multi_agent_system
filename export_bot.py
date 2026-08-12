@@ -10,7 +10,7 @@ from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandl
 from pathlib import Path
 import os
 
-TOKEN = "REDACTED_TELEGRAM_BOT_TOKEN"
+TOKEN = ""
 
 async def send_csv_file(update: Update, context: ContextTypes.DEFAULT_TYPE, filename: str, caption: str):
     """Send a CSV file"""

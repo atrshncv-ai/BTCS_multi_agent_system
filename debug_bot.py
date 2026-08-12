@@ -8,7 +8,7 @@ from telegram.ext import Application, CommandHandler, ContextTypes
 
 logging.basicConfig(level=logging.INFO, format='%(levelname)s - %(message)s')
 
-TOKEN = "REDACTED_TELEGRAM_BOT_TOKEN"
+TOKEN = ""
 
 async def cmd_start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     print(f"RECEIVED /start from {update.effective_user.id}")

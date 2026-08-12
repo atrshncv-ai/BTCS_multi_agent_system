@@ -24,7 +24,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-TOKEN = "REDACTED_TELEGRAM_BOT_TOKEN"
+TOKEN = ""
 
 PARSER_DIR = Path("/Users/aiserver/OPENCLAW BOT/parser_avito")
 RESULT_DIR = PARSER_DIR / "result"
