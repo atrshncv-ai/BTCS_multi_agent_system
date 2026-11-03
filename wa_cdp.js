@@ -54,6 +54,10 @@ async function main(phone, message) {
     return true;
 }
 
-const phone = process.argv[2] || 'REDACTED_PHONE';
+const phone = process.argv[2] || process.env.WA_PHONE;
+if (!phone) {
+  console.error('[WA] Pass the target number via argv or WA_PHONE.');
+  process.exit(2);
+}
 const msg = process.argv.slice(3).join(' ') || 'Test from Chrome CDP!';
 main(phone, msg).then(() => process.exit(0)).catch(e => { console.error(e); process.exit(1); });
