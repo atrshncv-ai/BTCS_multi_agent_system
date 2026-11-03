@@ -323,3 +323,8 @@ python run.py [bot|api|all]
 ## Лицензия
 
 Файл лицензии не указан.
+
+## License / Лицензия
+
+Released under the MIT License. See [LICENSE](LICENSE).
+Проект распространяется по лицензии MIT. См. [LICENSE](LICENSE).
